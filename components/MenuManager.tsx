@@ -13,7 +13,7 @@ const INDIAN_DISH_LIBRARY = [
 ];
 
 const DEFAULT_MENU_ITEMS: MenuItem[] = [
-    { id: '1', name: 'Butter Chicken', description: 'Creamy tomato curry', price: 14.50, category: 'Main', isVegetarian: false, imageUrl: 'https://via.placeholder.com/150' },
+    { id: '1', name: 'Butter Chicken', description: 'Creamy tomato curry', price: 14.50, category: 'Main', isVegetarian: false },
     { id: '2', name: 'Standard Veg Tiffin', description: 'Dal, Rice, 3 Roti, Sabzi, Salad', price: 12.00, category: 'Tiffin', isVegetarian: true, isCombo: true },
 ];
 

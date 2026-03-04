@@ -5,12 +5,12 @@ import { Plus, FileText, PieChart as PieIcon, Download, Trash2, Sparkles, Camera
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 const DEFAULT_EXPENSES: Expense[] = [
-    { id: '1', description: 'Basmati Rice (25kg)', amount: 45.00, category: ExpenseCategory.INGREDIENTS, date: '2023-10-25', vatRate: 9, taxAmount: 3.71, invoiceImageUrl: 'https://via.placeholder.com/150' },
-    { id: '2', description: 'Eco-friendly Containers', amount: 120.00, category: ExpenseCategory.PACKAGING, date: '2023-10-26', vatRate: 21, taxAmount: 20.82 },
+    { id: '1', description: 'Basmati Rice (25kg) – Sligro', amount: 45.00, category: ExpenseCategory.INGREDIENTS, date: '2026-02-18', vatRate: 9, taxAmount: 3.71 },
+    { id: '2', description: 'Eco-friendly verpakkingen – Hanos', amount: 120.00, category: ExpenseCategory.PACKAGING, date: '2026-02-20', vatRate: 21, taxAmount: 20.82 },
 ];
 
 const DEFAULT_INVOICES: Invoice[] = [
-    { id: 'INV-001', clientName: 'Corporate Event A', items: [{description: 'Catering Service', amount: 450}], subtotal: 450, vatRate: 21, vatAmount: 94.50, total: 544.50, date: '2023-10-20', dueDate: '2023-11-20', status: 'Sent' }
+    { id: 'INV-001', clientName: 'Bedrijfsevenement BV', items: [{description: 'Cateringdienst – 30 personen', amount: 450}], subtotal: 450, vatRate: 9, vatAmount: 40.50, total: 490.50, date: '2026-02-10', dueDate: '2026-03-10', status: 'Sent' }
 ];
 
 const FinanceManager: React.FC = () => {
@@ -48,7 +48,12 @@ const FinanceManager: React.FC = () => {
   const [currentInvoiceItem, setCurrentInvoiceItem] = useState({ description: '', amount: 0 });
 
   // Analysis State
-  const [dateRange, setDateRange] = useState({ start: '2023-10-01', end: '2023-10-31' });
+  const [dateRange, setDateRange] = useState(() => {
+    const d = new Date();
+    const firstOfMonth = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`;
+    const lastOfMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0).toISOString().split('T')[0];
+    return { start: firstOfMonth, end: lastOfMonth };
+  });
   const [monthlyRevenue, setMonthlyRevenue] = useState('3500');
   const [analysis, setAnalysis] = useState<string | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
