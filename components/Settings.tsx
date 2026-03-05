@@ -16,7 +16,7 @@ const Settings: React.FC<SettingsProps> = ({ onLogout, user }) => {
     kitchenName: user?.kitchenName || "Alina's Kitchen",
     ownerName: user?.name || "Alina",
     email: user?.email || "orders@alinaskitchen.nl",
-    phone: "+31 6 1234 5678",
+    phone: "+31 6 8234 9057",
     kvkNumber: user?.businessDetails?.kvkNumber || "12345678",
     address: user?.businessDetails?.address || "Keizersgracht 123, 1015 CJ Amsterdam",
     legalForm: user?.businessDetails?.legalForm || "Eenmanszaak",

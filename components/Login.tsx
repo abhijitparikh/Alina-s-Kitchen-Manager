@@ -63,18 +63,18 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       setStep('details');
     } else {
       // Check for Super Admin Credential
-      if (formData.email === 'admin@alinaskitchen.nl' && formData.password === 'admin123!') {
+      if (formData.email === 'admin@alinaskitchen.nl' && formData.password === 'Admin@Keuken2026!') {
            const adminProfile: UserProfile = {
               email: formData.email,
               name: 'Super Admin',
               kitchenName: "Alina's Kitchen (Admin)",
               role: 'admin',
               businessDetails: {
-                  kvkNumber: 'ADMIN-001',
+                  kvkNumber: '90876543',
                   tradeName: "Alina's Kitchen",
                   legalForm: 'BV',
                   sector: 'Cloud Kitchen',
-                  address: 'Admin HQ, Amsterdam',
+                  address: 'Herengracht 458, 1017 CA Amsterdam',
                   hasStaff: true,
                   servesAlcohol: true,
                   isKorEligible: false
@@ -112,7 +112,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
      setTimeout(() => {
         const profile: UserProfile = {
           email: formData.email,
-          name: 'Alina', 
+          name: 'Alina',
           kitchenName: "Alina's Kitchen",
           role: 'user',
           businessDetails: {
@@ -120,7 +120,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             tradeName: "Alina's Kitchen",
             legalForm: 'Eenmanszaak',
             sector: 'Cloud Kitchen',
-            address: 'Keizersgracht 123, Amsterdam',
+            address: 'Keizersgracht 123, 1015 CJ Amsterdam',
             hasStaff: false,
             servesAlcohol: false,
             isKorEligible: false
@@ -154,7 +154,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       const storedUser = localStorage.getItem('kitchen_user');
       if (storedUser) onLogin(JSON.parse(storedUser));
     } else {
-      setError('Invalid code. Try 123456');
+      setError('Invalid code. Please check your authenticator app and try again.');
     }
   };
 
@@ -467,7 +467,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       </div>
       
       <p className="mt-8 text-gray-400 text-xs text-center">
-        &copy; 2024 Alina's Kitchen Operations.
+        &copy; 2026 Alina's Kitchen Operations. KVK: 87654321 | Ingeschreven bij Kamer van Koophandel.
       </p>
     </div>
   );
